@@ -7,6 +7,7 @@ var opening = document.querySelector('#opening');
 var rockCorner;
 var rockwall;
 var corner = 0;
+var hoverCheck = false;
 var MAP_SIZE = 10,
 PLATFORM_SIZE = 5,
 NUM_PLATFORMS = 100;
@@ -70,19 +71,47 @@ function addtreasure(x,z){
 // fuing function
 AFRAME.registerComponent('check', {
   init:function(){
+    var element = this.el;
     console.log('ok');
+    
     this.el.addEventListener('click',function(){
-      console.log('you focus something');
+          hoverCheck = true;
+          console.log(element,'check');
     });
   }
+});
+//effect
 
+AFRAME.registerComponent('effect',{
+  init:function(){
+    var effectBox = document.querySelector('#effect');
+    effectBox.addEventListener('animationstart',function(){
+      hoverCheck = false;
+      console.log('animationstart');
+      
+    });
+    effectBox.addEventListener('animationend',function(){
+        setTimeout(function(){
+          hoverCheck = true;
+        },1500);
+        console.log('effect end');
+        
+      });
+  }
 });
 // auto move
 AFRAME.registerComponent('automove-controls', {
   init: function () {
       this.speed = 0.2;
-      this.isMoving = true;
+      this.isMoving = false;
       this.velocityDelta = new THREE.Vector3();
+  },
+  tick:function(){
+    if(hoverCheck == true){
+      this.isMoving = true;
+    }else{
+      this.isMoving = false;
+    }
   },
   isVelocityActive: function () {
       return this.isMoving;
@@ -98,14 +127,11 @@ AFRAME.registerComponent('megshowandhide',{
     init:function(){
        var showMessage = document.querySelector('#showMessage');
        opening.addEventListener('animationend',function(){
-
-          console.log('animate end');
           setTimeout(function(){
             showMessage.setAttribute('visible',false);
+            hoverCheck = true;
           },1000);
        });
-       console.log(this.el,'animate');
-       
     }
 
 });

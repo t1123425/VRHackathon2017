@@ -29,7 +29,7 @@
                 <a-asset-item id="shipObj" src="img/Spaceship/Mars_Lander_Space_Capsule.obj"></a-asset-item>
                 <a-asset-item id="shipMtl" src="img/Spaceship/Mars_Lander_Space_Capsule.mtl"></a-asset-item>
             </a-assets>
-            <a-entity id="player"  camera position="-12 2 -23" rotation="0 180 0"   universal-controls kinematic-body listener >
+            <a-entity id="player"  camera position="-12 2 -23" rotation="0 180 0"   universal-controls="movementControls:automove, gamepad, keyboard" kinematic-body listener >
                     <a-entity light="color: #f4dfc2;"  target="showMessage" type="ambient" position="0 0 5 "></a-entity>
                     <a-cursor fuse="true" color="#fff" position="0 0 -2" >
                             <!-- <a-entity  geometry="primitive: sphere;" position="0 0 -3"  radius="10" fuse="true" ></a-entity> -->
@@ -60,9 +60,9 @@
             <!-- <a-entity geometry="primitive: box" material="color: red"  width="10"  height="10" position="0 0 -5"> -->
             <a-entity  obj-model="obj: #shipObj; mtl: #shipMtl" scale="0.04 0.04 0.04"  static-body  position="-20 2.2 -10">
             </a-entity>
-            <a-box color="#ccc" position="-10 2 -20" check begin="fusing">
-                    <!-- <a-animation begin="fusing" attribute="color"  from="#ccc" to="#fff"
-                    easing="linear" dur="2000" fill="backwards"></a-animation> -->
+            <a-box color="#ccc" position="-10 2 -20" check begin="fusing" effect>
+                    <a-animation begin="fusing" attribute="color" id="effect"  from="#ccc" to="#000"
+                    easing="linear" dur="2000" fill="forwards"></a-animation>
             </a-box>
             <a-sky color="#be967c" ></a-sky>
             <!-- <a-plane id="plane" width="500" height="500" src="#marGround" rotation="-90 0 0" position="0 -1 0" > </a-plane> -->
