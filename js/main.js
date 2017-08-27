@@ -21,10 +21,17 @@ var v, rock;
 var currntposZ;
 var currntposX;
 var currntposY;
-var treasureXPos = 10;
-var treasureZPos = Math.floor(Math.random() * 20);
+var frontAndleft = Math.floor(Math.random() * 2)
+var treasureXPos;
+var treasureZPos;
 
-
+if(frontAndleft > 1){
+  treasureXPos = Math.floor(Math.random() * 10);
+  treasureZPos = Math.floor(Math.random() * 20);
+}else{
+  treasureXPos = Math.floor(Math.random() * 10)*-1;
+  treasureZPos = Math.floor(Math.random() * 20)*-1;
+}
 document.querySelector('a-scene').addEventListener('render-target-loaded',function(){
 
   loadrockWall(rockWrapTop);
@@ -52,7 +59,7 @@ function loadrockWall(side){
 }
 
 function loadMaze(){
-  for (var i = 0;  i < NUM_PLATFORMS; i++) {
+  for (var i = 0;  i < 20; i++) {
       // y: 0 is ground
       var wallnumber = Math.floor(Math.random() * 4);
       v = {
@@ -60,6 +67,7 @@ function loadMaze(){
           y: Math.floor(Math.random() * 2),
           z: (Math.floor(Math.random() * MAP_SIZE) - PLATFORM_SIZE) * PLATFORM_SIZE+1
       };
+
       if(wallnumber == 1){
         createrockwall(mazeWall1,v.x,v.y,v.z);
       }else if(wallnumber == 2){
@@ -70,12 +78,12 @@ function loadMaze(){
         createrockwall(mazeWall4,v.x,v.y,v.z);
       }
 
-      // rock = document.createElement('a-dodecahedron');
-      // maze.appendChild(rock);
-      // rock.setAttribute('src','#stone');
-      // rock.setAttribute('radius','2');
-      // rock.setAttribute('position', v.x + ' ' + v.y + ' ' + v.z);
-      // rock.setAttribute('static-body', '');
+      rock = document.createElement('a-dodecahedron');
+      maze.appendChild(rock);
+      rock.setAttribute('src','#stone');
+      rock.setAttribute('radius','0.5');
+      rock.setAttribute('position', v.x + ' ' + 0 + ' ' + v.z);
+      rock.setAttribute('dynamic-body', '');
   }
   // var treasureBox = document.createElement('a-box');
   // maze.appendChild(treasureBox);
