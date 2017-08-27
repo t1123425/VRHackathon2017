@@ -23,6 +23,7 @@ var currntposX;
 var currntposY;
 var treasureXPos = 0;
 var treasureZPos = 20;
+
 document.querySelector('a-scene').addEventListener('render-target-loaded',function(){
 
   loadrockWall(rockWrapTop);

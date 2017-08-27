@@ -94,8 +94,11 @@
                 <a-entity obj-model="obj: #rockObj; mtl: #rockMtl" scale="0.08 0.08 0.08"  static-body  position="15 0 15"></a-entity>
                 <a-entity obj-model="obj: #rockObj; mtl: #rockMtl" scale="0.08 0.08 0.08"  static-body  position="-15 0 -15"></a-entity>
                 <a-entity obj-model="obj: #rockObj; mtl: #rockMtl" scale="0.08 0.08 0.08"  static-body  position="15 0 -15"></a-entity>
-                <a-box position="0 2 20" id="treasureBox1" color="red" check></a-box>
-                <a-box position="0 2 -20" id="treasureBox2" color="red" check></a-box>
+                <a-box position="0 2 20" id="treasureBox1" color="gold" check>
+                        <a-animation  attribute="rotation" to="0 360 0"
+                        easing="linear" dur="1000" repeat="indefinite"></a-animation>
+                </a-box>
+                <!-- <a-box position="0 2 -20" id="treasureBox2" color="red" check></a-box> -->
             </a-entity>
             
             <a-grid id="ground" static-body material="src:#marGround" item-width="1000" ></a-grid>
