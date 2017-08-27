@@ -21,8 +21,9 @@ var v, rock;
 var currntposZ;
 var currntposX;
 var currntposY;
-var treasureXPos = 0;
-var treasureZPos = 20;
+var treasureXPos = 10;
+var treasureZPos = Math.floor(Math.random() * 20);
+
 
 document.querySelector('a-scene').addEventListener('render-target-loaded',function(){
 
@@ -79,7 +80,8 @@ function loadMaze(){
   // var treasureBox = document.createElement('a-box');
   // maze.appendChild(treasureBox);
   // treasureBox.setAttribute('check','');
-  // treasureBox.setAttribute('position', treasureXPos + ' ' + 2 + ' ' + treasureZPos);
+  var treasureBox1 = document.querySelector('#treasureBox1');
+  treasureBox1.setAttribute('position', ''+treasureXPos + ' ' + 2.5 + ' ' + treasureZPos + '');
 }
 
 function createrockwall(wall,x,y,z){
@@ -204,7 +206,8 @@ AFRAME.registerComponent('listener', {
       currntposX = this.el.getAttribute('position').x;
       currntposY = this.el.getAttribute('position').y;
       addtreasure(currntposX,currntposZ);
-     
+      console.log(treasureXPos,'posx');
+      console.log(treasureZPos,'posZ');
       //console.log(this.el.getAttribute('position'),'positon');
       
     }
