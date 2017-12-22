@@ -32,15 +32,23 @@ if(frontAndleft > 1){
   treasureXPos = Math.floor(Math.random() * 10)*-1;
   treasureZPos = Math.floor(Math.random() * 20)*-1;
 }
-document.querySelector('a-scene').addEventListener('render-target-loaded',function(){
+// 0.6.0 version render rockwall
+// document.querySelector('a-scene').addEventListener('render-target-loaded',function(){
 
+//   loadrockWall(rockWrapTop);
+//   loadrockWall(rockWrapLeft);
+//   loadrockWall(rockWrapRight);
+//   loadrockWall(rockWrapBottom);
+//   loadMaze();
+// });
+
+// 0.7.0 version render rockwall
+window.addEventListener('load',function(){
   loadrockWall(rockWrapTop);
   loadrockWall(rockWrapLeft);
   loadrockWall(rockWrapRight);
   loadrockWall(rockWrapBottom);
   loadMaze();
-
-
 });
 
 function loadrockWall(side){
@@ -54,7 +62,8 @@ function loadrockWall(side){
       rockwall.setAttribute('src','#stone');
       rockwall.setAttribute('radius','5.5');
       rockwall.setAttribute('static-body','');
-      rockwall.setAttribute('position','0 2 '+(i*5)+' ');
+      // rockwall.setAttribute('position','0 2 '+(i*5)+' ');
+      rockwall.setAttribute('position',{x:0,y:2,z:i*5});
   }
 }
 
@@ -214,8 +223,8 @@ AFRAME.registerComponent('listener', {
       currntposX = this.el.getAttribute('position').x;
       currntposY = this.el.getAttribute('position').y;
       addtreasure(currntposX,currntposZ);
-      console.log(treasureXPos,'posx');
-      console.log(treasureZPos,'posZ');
+      // console.log(treasureXPos,'posx');
+      // console.log(treasureZPos,'posZ');
       //console.log(this.el.getAttribute('position'),'positon');
       
     }
