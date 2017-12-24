@@ -43,13 +43,13 @@ if(frontAndleft > 1){
 // });
 
 // 0.7.0 version render rockwall
-// window.addEventListener('load',function(){
-//   loadrockWall(rockWrapTop);
-//   loadrockWall(rockWrapLeft);
-//   loadrockWall(rockWrapRight);
-//   loadrockWall(rockWrapBottom);
-//   loadMaze();
-// });
+window.addEventListener('load',function(){
+  loadrockWall(rockWrapTop);
+  loadrockWall(rockWrapLeft);
+  loadrockWall(rockWrapRight);
+  loadrockWall(rockWrapBottom);
+  loadMaze();
+});
 
 function loadrockWall(side){
 
@@ -87,12 +87,12 @@ function loadMaze(){
         createrockwall(mazeWall4,v.x,v.y,v.z);
       }
 
-      rock = document.createElement('a-dodecahedron');
-      maze.appendChild(rock);
-      rock.setAttribute('src','#stone');
-      rock.setAttribute('radius','0.5');
-      rock.setAttribute('position', v.x + ' ' + 0 + ' ' + v.z);
-      rock.setAttribute('dynamic-body', '');
+      // rock = document.createElement('a-dodecahedron');
+      // maze.appendChild(rock);
+      // rock.setAttribute('src','#stone');
+      // rock.setAttribute('radius','0.5');
+      // rock.setAttribute('position', v.x + ' ' + 0 + ' ' + v.z);
+      // rock.setAttribute('dynamic-body', '');
   }
   // var treasureBox = document.createElement('a-box');
   // maze.appendChild(treasureBox);
@@ -230,19 +230,3 @@ AFRAME.registerComponent('megshowandhide',{
 //     }
 //   });
 
-// custom control
-// AFRAME.registerComponent('custom-controls', {
-//   isVelocityActive: function () {
-//     return Math.random() < 0.25;
-//   },
-//   getPositionDelta: function () {
-//     return new THREE.Vector3(1, 0, 0);
-//   }
-// });
-
-//load wall and maze
-loadrockWall(rockWrapTop);
-loadrockWall(rockWrapLeft);
-loadrockWall(rockWrapRight);
-loadrockWall(rockWrapBottom);
-loadMaze(); 
