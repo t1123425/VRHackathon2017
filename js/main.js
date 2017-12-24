@@ -43,13 +43,13 @@ if(frontAndleft > 1){
 // });
 
 // 0.7.0 version render rockwall
-window.addEventListener('load',function(){
-  loadrockWall(rockWrapTop);
-  loadrockWall(rockWrapLeft);
-  loadrockWall(rockWrapRight);
-  loadrockWall(rockWrapBottom);
-  loadMaze();
-});
+// window.addEventListener('load',function(){
+//   loadrockWall(rockWrapTop);
+//   loadrockWall(rockWrapLeft);
+//   loadrockWall(rockWrapRight);
+//   loadrockWall(rockWrapBottom);
+//   loadMaze();
+// });
 
 function loadrockWall(side){
 
@@ -214,18 +214,35 @@ AFRAME.registerComponent('megshowandhide',{
 });
 
 // player position listener
-AFRAME.registerComponent('listener', {
-    init:function(){
-      console.log(this.el.getAttribute('position').z,'currentZ');
-    },
-    tick: function () {
-      currntposZ = this.el.getAttribute('position').z;
-      currntposX = this.el.getAttribute('position').x;
-      currntposY = this.el.getAttribute('position').y;
-      addtreasure(currntposX,currntposZ);
-      // console.log(treasureXPos,'posx');
-      // console.log(treasureZPos,'posZ');
-      //console.log(this.el.getAttribute('position'),'positon');
+// AFRAME.registerComponent('listener', {
+//     init:function(){
+//       console.log(this.el.getAttribute('position').z,'currentZ');
+//     },
+//     tick: function () {
+//       currntposZ = this.el.getAttribute('position').z;
+//       currntposX = this.el.getAttribute('position').x;
+//       currntposY = this.el.getAttribute('position').y;
+//       addtreasure(currntposX,currntposZ);
+//       // console.log(treasureXPos,'posx');
+//       // console.log(treasureZPos,'posZ');
+//       //console.log(this.el.getAttribute('position'),'positon');
       
-    }
-  });
+//     }
+//   });
+
+// custom control
+// AFRAME.registerComponent('custom-controls', {
+//   isVelocityActive: function () {
+//     return Math.random() < 0.25;
+//   },
+//   getPositionDelta: function () {
+//     return new THREE.Vector3(1, 0, 0);
+//   }
+// });
+
+//load wall and maze
+loadrockWall(rockWrapTop);
+loadrockWall(rockWrapLeft);
+loadrockWall(rockWrapRight);
+loadrockWall(rockWrapBottom);
+loadMaze(); 
