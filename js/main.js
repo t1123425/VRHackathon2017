@@ -26,10 +26,10 @@ var treasureXPos;
 var treasureZPos;
 
 if(frontAndleft > 1){
-  treasureXPos = Math.floor(Math.random() * 10);
+  treasureXPos = Math.floor(Math.random() * 15);
   treasureZPos = Math.floor(Math.random() * 20);
 }else{
-  treasureXPos = Math.floor(Math.random() * 10)*-1;
+  treasureXPos = Math.floor(Math.random() * 15)*-1;
   treasureZPos = Math.floor(Math.random() * 20)*-1;
 }
 // 0.6.0 version render rockwall
@@ -98,7 +98,7 @@ function loadMaze(){
   // maze.appendChild(treasureBox);
   // treasureBox.setAttribute('check','');
   var treasureBox1 = document.querySelector('#treasureBox1');
-  treasureBox1.setAttribute('position', ''+treasureXPos + ' ' + 2.5 + ' ' + treasureZPos + '');
+  treasureBox1.setAttribute('position', ''+treasureXPos + ' ' + 2 + ' ' + treasureZPos + '');
 }
 
 function createrockwall(wall,x,y,z){
@@ -135,6 +135,7 @@ AFRAME.registerComponent('check', {
     var showMessage = document.querySelector('#showMessage');
     var message = document.querySelector('#message');
     this.el.addEventListener('click',function(){
+          console.log('get TREASURE');
           hoverCheck = true;
           showMessage.setAttribute('visible',true);
           message.setAttribute('value','GET TREASURE !!!');
