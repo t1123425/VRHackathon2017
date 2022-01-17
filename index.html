@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Galaxy 123 GO GO</title>
     <!-- aframe latest version -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <style>
         body{
@@ -31,7 +31,7 @@
                 <a-asset-item id="scrollMtl" src="img/scroll/Scroll.mtl"></a-asset-item>
             </a-assets>
              <!-- player -->
-             <a-entity id="player"  camera position="0 2 0" rotation="0 180 0" kinematic-body universal-controls listener>
+             <a-entity id="player"  camera position="0 2 0" rotation="0 180 0" look-controls="pointerLockEnabled: true" kinematic-body universal-controls listener>
                 <!-- <a-entity light="color: #f4dfc2;"  target="showMessage" type="ambient" position="0 0 5"></a-entity> -->
                         <a-cursor fuse="true" color="#fff" position="0 0 -2" >
                                 <a-animation begin="click" attribute="color" from="#fff" to="red"  easing="linear" dur="2000" fill="forwards" ></a-animation>
